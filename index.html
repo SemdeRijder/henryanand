@@ -23,5 +23,34 @@
       <img src="henryanand-banner.jpg" alt="henRYANand Banner" />
     </section>
   </main>
+  <section id="videos">
+  <h2>Meest recente video</h2>
+  <div id="videoContainer">
+    <!-- Video komt hier -->
+  </div>
+</section>
+<script>
+  // Vervang hier met het YouTube-kanaal ID van henRYANand
+  const channelId = "UC3VOlMMV-5KNZT5NHqY4aKQ"; // plaats hier het echte kanaal ID
+
+  // YouTube Data API key (nodig om live info op te halen, maar voor simpel embed is dat niet nodig)
+  // Omdat API keys niet altijd makkelijk zijn, doen we het simpel met embed URL:
+
+  // Simpelste embed van meest recente video via YouTube kanaal uploads playlist
+  const uploadsPlaylistId = `UU${channelId.substring(2)}`; 
+
+  // iframe URL voor meest recente video in uploads playlist
+  const embedUrl = `https://www.youtube.com/embed?listType=playlist&list=${uploadsPlaylistId}&index=0&autoplay=0&loop=0`;
+
+  document.getElementById("videoContainer").innerHTML = `
+    <iframe width="560" height="315" 
+      src="${embedUrl}" 
+      title="Meest recente video van henRYANand" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen>
+    </iframe>
+  `;
+</script>
 </body>
 </html>
